@@ -1,4 +1,5 @@
 from window import *
+from cell import *
 
 def main():
     win = Window(800, 600)
