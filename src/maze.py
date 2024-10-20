@@ -28,6 +28,7 @@ class Maze():
             raise ValueError("cell_size_x and cell_size_y must be greater than 0")
         
         self._create_cells()
+        self._break_entrance_and_exit()
         
     def _create_cells(self):
         col_list = [Cell(self.win)] * self.num_rows
@@ -50,3 +51,18 @@ class Maze():
             return
         time.sleep(0.005)
         self.win.redraw()
+        
+    def _break_entrance_and_exit(self):
+        self._animate()
+        entrance_cell = self._cells[0][0]
+        entrance_cell.has_left_wall = False
+        self._cells[0][0] = entrance_cell
+        self._draw_cell(0, 0)
+        
+        self._animate()
+        exit_i = self.num_cols-1
+        exit_j = self.num_rows-1
+        exit_cell = self._cells[exit_i][exit_j]
+        exit_cell.has_right_wall = False
+        self._cells[exit_i][exit_j] = exit_cell
+        self._draw_cell(exit_i, exit_j)

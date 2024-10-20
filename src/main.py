@@ -5,7 +5,7 @@ def main():
     win_w = 800
     win_h = 600
     
-    cell_size = 25
+    cell_size = 50
     x1 = cell_size
     y1 = cell_size
     rows = int((win_w - 2 * cell_size) / cell_size)
