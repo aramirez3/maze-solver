@@ -32,3 +32,14 @@ class Cell():
             line = Line(Point(x1, y2), Point(x2, y2))
             self._win.draw_line(line)
             
+    def draw_move(self, to_cell, undo=False):
+        p1 = self.get_mid_point()
+        p2 = to_cell.get_mid_point()
+        line_color = "red2"
+        if undo:
+            line_color = "gray25"
+        line = Line(p1, p2)
+        self._win.draw_line(line, fill_color=line_color)
+        
+    def get_mid_point(self):
+        return Point((self._x1 + self._x2) / 2, (self._y1 + self._y2) / 2)
