@@ -12,7 +12,7 @@ def main():
     cols = int((win_h - 2 * cell_size) / cell_size)
     win = Window(win_w, win_h)
     
-    Maze(x1, y1, rows, cols, cell_size, cell_size, win)
+    maze = Maze(x1, y1, rows, cols, cell_size, cell_size, win)
     
     win.wait_for_close()
     
