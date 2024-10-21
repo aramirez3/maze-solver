@@ -6,12 +6,13 @@ def main():
     win_y = 600
     
     padding = 50
-    size = 20
+    size = 40
     cols = int((win_x - 2 * padding) / size)
     rows = int((win_y - 2 * padding) / size)
     win = Window(win_x, win_y)
     
     maze = Maze(padding, padding, rows, cols, size, size, win, 10)
+    maze.solve()
     
     win.wait_for_close()
     
