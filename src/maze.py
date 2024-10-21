@@ -148,20 +148,22 @@ class Maze():
             solved = self._solve_r(move[0], move[1])
             if solved:
                 return solved
+            else:
+                self._cells[i][j].draw_move(next_cell, True)
             
-            if next_cell.visited:
-                l = self._cells[i+1][j]
-                if not l.has_left_wall:
-                    self._cells[i][j].draw_move(l, True)
-                r = self._cells[i-1][j]
-                if not r.has_right_wall:
-                    self._cells[i][j].draw_move(r, True)
-                t = self._cells[i][j+1]
-                if not t.has_top_wall:
-                    self._cells[i][j].draw_move(t, True)
-                b = self._cells[i][j-1]
-                if not b.has_bottom_wall:
-                    self._cells[i][j].draw_move(b, True)
+            # if next_cell.visited:
+            #     l = self._cells[i+1][j]
+            #     if not l.has_left_wall:
+            #         self._cells[i][j].draw_move(l, True)
+            #     r = self._cells[i-1][j]
+            #     if not r.has_right_wall:
+            #         self._cells[i][j].draw_move(r, True)
+            #     t = self._cells[i][j+1]
+            #     if not t.has_top_wall:
+            #         self._cells[i][j].draw_move(t, True)
+            #     b = self._cells[i][j-1]
+            #     if not b.has_bottom_wall:
+            #         self._cells[i][j].draw_move(b, True)
                 
         
          
