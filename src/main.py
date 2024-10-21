@@ -11,7 +11,7 @@ def main():
     rows = int((win_y - 2 * padding) / size)
     win = Window(win_x, win_y)
     
-    maze = Maze(padding, padding, rows, cols, size, size, win)
+    maze = Maze(padding, padding, rows, cols, size, size, win, 10)
     
     win.wait_for_close()
     
