@@ -2,17 +2,16 @@ from window import *
 from maze import *
 
 def main():
-    win_w = 800
-    win_h = 600
+    win_x = 800
+    win_y = 600
     
-    cell_size = 50
-    x1 = cell_size
-    y1 = cell_size
-    rows = int((win_w - 2 * cell_size) / cell_size)
-    cols = int((win_h - 2 * cell_size) / cell_size)
-    win = Window(win_w, win_h)
+    padding = 50
+    size = 20
+    cols = int((win_x - 2 * padding) / size)
+    rows = int((win_y - 2 * padding) / size)
+    win = Window(win_x, win_y)
     
-    maze = Maze(x1, y1, rows, cols, cell_size, cell_size, win)
+    maze = Maze(padding, padding, rows, cols, size, size, win)
     
     win.wait_for_close()
     

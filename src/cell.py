@@ -12,6 +12,7 @@ class Cell():
         self._y1 = None
         self._y2 = None
         self._win = win
+        self.visited = False
 
     def draw(self, x1, y1, x2, y2):
         if self._win == None:
@@ -48,13 +49,17 @@ class Cell():
             self._win.draw_line(bottom, fill_color=line_color_remove_wall)
             
     def draw_move(self, to_cell, undo=False):
-        p1 = self.get_mid_point()
-        p2 = to_cell.get_mid_point()
+        mid1 = abs(self._x2 - self._x1) // 2
+        x1 = mid1 + self._x1
+        y1 = mid1 + self._y1
+        
+        mid2 = abs(to_cell._x2 - to_cell._x1) // 2
+        x2 = mid2 + to_cell._x1
+        y2 = mid2 + to_cell._y1
+        
         line_color = "red2"
         if undo:
             line_color = "gray25"
-        line = Line(p1, p2)
-        self._win.draw_line(line, fill_color=line_color)
         
-    def get_mid_point(self):
-        return Point((self._x1 + self._x2) / 2, (self._y1 + self._y2) / 2)
+        line = Line(Point(x1, y1), Point(x2, y2))
+        self._win.draw_line(line, fill_color=line_color)
